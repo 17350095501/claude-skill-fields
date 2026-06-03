@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<NotepadPlus>
+    <AutoComplete language="Claude-Skill-zh-CN">
+        <Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" additionalWordChar="-" />
+        <!-- 官方确认字段（来源: code.claude.com/docs/en/skills） -->
+        <KeyWord name="agent" />
+        <KeyWord name="allowed-tools" />
+        <KeyWord name="argument-hint" />
+        <KeyWord name="arguments" />
+        <KeyWord name="context" />
+        <KeyWord name="description" />
+        <KeyWord name="disable-model-invocation" />
+        <KeyWord name="effort" />
+        <KeyWord name="hooks" />
+        <KeyWord name="model" />
+        <KeyWord name="name" />
+        <KeyWord name="paths" />
+        <KeyWord name="shell" />
+        <KeyWord name="user-invocable" />
+        <KeyWord name="when_to_use" />
+        <!-- 官方确认字段（来源: support.claude.com） -->
+        <KeyWord name="dependencies" />
+        <!-- 开放标准字段（来源: agentskills.io） -->
+        <KeyWord name="compatibility" />
+        <KeyWord name="license" />
+        <KeyWord name="metadata" />
+        <!-- 社区使用字段 -->
+        <KeyWord name="args" />
+        <KeyWord name="version" />
+        <KeyWord name="permissionMode" />
+        <!-- 支持文件 -->
+        <KeyWord name="reference.md" />
+        <KeyWord name="examples.md" />
+        <KeyWord name="scripts" />
+        <!-- 可选值 -->
+        <KeyWord name="Explore" />
+        <KeyWord name="false" />
+        <KeyWord name="fork" />
+        <KeyWord name="general-purpose" />
+        <KeyWord name="haiku" />
+        <KeyWord name="high" />
+        <KeyWord name="low" />
+        <KeyWord name="max" />
+        <KeyWord name="medium" />
+        <KeyWord name="no" />
+        <KeyWord name="null" />
+        <KeyWord name="off" />
+        <KeyWord name="on" />
+        <KeyWord name="opus" />
+        <KeyWord name="Plan" />
+        <KeyWord name="sonnet" />
+        <KeyWord name="true" />
+        <KeyWord name="xhigh" />
+        <KeyWord name="yes" />
+        <!-- REFERENCE.md 推荐章节 -->
+        <KeyWord name="REFERENCE.md" />
+        <!-- FORMS.md 模板字段 -->
+        <KeyWord name="Default" />
+        <KeyWord name="Field" />
+        <KeyWord name="FORMS.md" />
+        <KeyWord name="Report" />
+        <KeyWord name="Required" />
+        <KeyWord name="Severity" />
+        <KeyWord name="Summary" />
+        <KeyWord name="Table" />
+        <KeyWord name="Template" />
+        <KeyWord name="TopN" />
+        <KeyWord name="Type" />
+        <!-- 正文标记词 -->
+        <KeyWord name="FIXME" />
+        <KeyWord name="HACK" />
+        <KeyWord name="IMPORTANT" />
+        <KeyWord name="NOTE" />
+        <KeyWord name="TIP" />
+        <KeyWord name="TODO" />
+        <KeyWord name="WARNING" />
+        <KeyWord name="XXX" />
+    </AutoComplete>
+</NotepadPlus>

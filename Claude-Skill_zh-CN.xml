@@ -1,0 +1,170 @@
+<NotepadPlus>
+    <UserLang name="Claude-Skill-zh-CN" ext="SKILL.md REFERENCE.md FORMS.md" udlVersion="2.1">
+        <Settings>
+            <!-- caseIgnored: no=大小写敏感 -->
+            <!-- allowFoldOfComments: 否=不允许注释折叠 -->
+            <!-- foldCompact: 否=折叠时不紧凑 -->
+            <!-- decimalSeparator: 0=小数点用点 -->
+            <Global caseIgnored="no" allowFoldOfComments="no" foldCompact="no" forcePureLC="0" decimalSeparator="0" />
+            <!-- Keywords1-8 Prefix: 该组中的词作为前缀匹配（例如 @ 匹配 @tag） -->
+            <Prefix Keywords1="no" Keywords2="no" Keywords3="no" Keywords4="no" Keywords5="no" Keywords6="no" Keywords7="no" Keywords8="no" />
+        </Settings>
+        <KeywordLists>
+            <!-- ======================================================== -->
+            <!-- COMMENTS: 注释定义                                        -->
+            <!-- 00=行注释1  01=行注释2  02=块注释开  03=块注释关         -->
+            <!-- 04=块注释2开 05=块注释2关                                 -->
+            <!-- # 在YAML frontmatter中是注释, 在markdown中是标题          -->
+            <!-- 统一作为行注释处理（标题也会显示为注释色，折中方案）       -->
+            <!-- ======================================================== -->
+            <Keywords name="Comments">00# 01 02 03 04 05</Keywords>
+            <!-- Numbers: 数字样式 -->
+            <Keywords name="Numbers, prefix1"></Keywords>
+            <Keywords name="Numbers, prefix2"></Keywords>
+            <Keywords name="Numbers, extras1"></Keywords>
+            <Keywords name="Numbers, extras2"></Keywords>
+            <Keywords name="Numbers, suffix1"></Keywords>
+            <Keywords name="Numbers, suffix2"></Keywords>
+            <Keywords name="Numbers, range"></Keywords>
+            <!-- Operators: 运算符 -->
+            <Keywords name="Operators1">:</Keywords>
+            <Keywords name="Operators2"></Keywords>
+            <!-- Folders: 折叠标记 -->
+            <Keywords name="Folders in code1, open"></Keywords>
+            <Keywords name="Folders in code1, middle"></Keywords>
+            <Keywords name="Folders in code1, close"></Keywords>
+            <Keywords name="Folders in code2, open"></Keywords>
+            <Keywords name="Folders in code2, middle"></Keywords>
+            <Keywords name="Folders in code2, close"></Keywords>
+            <Keywords name="Folders in comment, open"></Keywords>
+            <Keywords name="Folders in comment, middle"></Keywords>
+            <Keywords name="Folders in comment, close"></Keywords>
+
+            <!-- ======================================================== -->
+            <!-- KEYWORDS1: 核心元数据字段（YAML frontmatter 最常用字段）     -->
+            <!-- name          = skill名称，kebab-case，也是 /name 命令名    -->
+            <!-- description   = 功能描述，最长1024字符，用于Claude自动发现  -->
+            <!-- when_to_use   = 触发场景补充，追加到description后          -->
+            <!-- argument-hint = 自动补全提示，如 [file-path]               -->
+            <!-- arguments     = 命名位置参数，空格分隔或YAML列表           -->
+            <!-- args          = arguments 的别名                          -->
+            <!-- ======================================================== -->
+            <Keywords name="Keywords1">name&#x000D;&#x000A;description&#x000D;&#x000A;when_to_use&#x000D;&#x000A;argument-hint&#x000D;&#x000A;arguments&#x000D;&#x000A;args</Keywords>
+
+            <!-- ======================================================== -->
+            <!-- KEYWORDS2: 行为控制字段                                    -->
+            <!-- user-invocable    = false时从/菜单隐藏，仅Claude自动触发   -->
+            <!-- disable-model-invocation = true时禁止自动调用，仅手动/name -->
+            <!-- context           = fork时在隔离子代理中运行               -->
+            <!-- agent             = 子代理类型（仅context:fork时生效）     -->
+            <!-- paths             = glob模式，限制自动激活的文件范围        -->
+            <!-- hooks             = 生命周期钩子（object类型）             -->
+            <!-- shell             = !command块shell类型：bash/powershell   -->
+            <!-- ======================================================== -->
+            <Keywords name="Keywords2">user-invocable&#x000D;&#x000A;disable-model-invocation&#x000D;&#x000A;context&#x000D;&#x000A;agent&#x000D;&#x000A;paths&#x000D;&#x000A;hooks&#x000D;&#x000A;shell</Keywords>
+
+            <!-- ======================================================== -->
+            <!-- KEYWORDS3: 运行时配置 + 元数据字段                          -->
+            <!-- allowed-tools  = 免审批工具白名单，如 "Read, Grep, Glob"   -->
+            <!-- model          = 模型覆盖：haiku/sonnet/opus              -->
+            <!-- effort         = 推理力度：low/medium/high/xhigh/max      -->
+            <!-- dependencies   = 依赖声明，格式 "python>=3.8, pandas>=..."-->
+            <!-- license        = 许可证标识，如 MIT                       -->
+            <!-- compatibility  = 兼容性说明                                -->
+            <!-- metadata       = 自定义元数据（object）                    -->
+            <!-- version        = 语义版本号（建议放 metadata 内）          -->
+            <!-- ======================================================== -->
+            <Keywords name="Keywords3">allowed-tools&#x000D;&#x000A;model&#x000D;&#x000A;effort&#x000D;&#x000A;dependencies&#x000D;&#x000A;license&#x000D;&#x000A;compatibility&#x000D;&#x000A;metadata&#x000D;&#x000A;version</Keywords>
+
+            <!-- ======================================================== -->
+            <!-- KEYWORDS4: YAML 逻辑值（布尔值和空值）                    -->
+            <!-- ======================================================== -->
+            <Keywords name="Keywords4">true&#x000D;&#x000A;false&#x000D;&#x000A;yes&#x000D;&#x000A;no&#x000D;&#x000A;on&#x000D;&#x000A;off&#x000D;&#x000A;null</Keywords>
+
+            <!-- ======================================================== -->
+            <!-- KEYWORDS5: 模型名 + 运行时可选值                           -->
+            <!-- Claude模型: haiku/sonnet/opus                             -->
+            <!-- context值: fork                                           -->
+            <!-- agent值: general-purpose/Explore/Plan                     -->
+            <!-- effort值: low/medium/high/xhigh/max                       -->
+            <!-- ======================================================== -->
+            <Keywords name="Keywords5">haiku&#x000D;&#x000A;sonnet&#x000D;&#x000A;opus&#x000D;&#x000A;fork&#x000D;&#x000A;general-purpose&#x000D;&#x000A;Explore&#x000D;&#x000A;Plan&#x000D;&#x000A;low&#x000D;&#x000A;medium&#x000D;&#x000A;high&#x000D;&#x000A;xhigh&#x000D;&#x000A;max</Keywords>
+
+            <!-- ======================================================== -->
+            <!-- KEYWORDS6: 正文标记词（SKILL.md markdown 正文中的高亮词） -->
+            <!-- NOTE/WARNING/TIP/IMPORTANT 等标注词                        -->
+            <!-- ======================================================== -->
+            <Keywords name="Keywords6">NOTE&#x000D;&#x000A;TIP&#x000D;&#x000A;WARNING&#x000D;&#x000A;IMPORTANT&#x000D;&#x000A;TODO&#x000D;&#x000A;FIXME&#x000D;&#x000A;HACK&#x000D;&#x000A;XXX</Keywords>
+
+            <!-- ======================================================== -->
+            <!-- KEYWORDS7: REFERENCE.md 推荐章节标题                      -->
+            <!-- REFERENCE.md 是 Level 3 资源（可选），被SKILL.md引用才加载 -->
+            <!-- SKILL.md 中写 "详见 REFERENCE.md" → Claude 去读取         -->
+            <!-- 这些是 REFERENCE.md 中推荐的章节标题                       -->
+            <!-- ======================================================== -->
+            <Keywords name="Keywords7">REFERENCE.md&#x000D;&#x000A;Overview&#x000D;&#x000A;Background&#x000D;&#x000A;Rules&#x000D;&#x000A;Standards&#x000D;&#x000A;Conventions&#x000D;&#x000A;Examples&#x000D;&#x000A;BestPractices&#x000D;&#x000A;Workflow&#x000D;&#x000A;Checklist&#x000D;&#x000A;References</Keywords>
+
+            <!-- ======================================================== -->
+            <!-- KEYWORDS8: FORMS.md 模板字段                              -->
+            <!-- FORMS.md 是 Level 3 资源（可选），定义输出模板/表单        -->
+            <!-- SKILL.md 中写 "按 FORMS.md 模板输出" → Claude 去读取      -->
+            <!-- 这些是 FORMS.md 中常用的模板结构字段                       -->
+            <!-- ======================================================== -->
+            <Keywords name="Keywords8">FORMS.md&#x000D;&#x000A;Template&#x000D;&#x000A;Report&#x000D;&#x000A;Summary&#x000D;&#x000A;Table&#x000D;&#x000A;Field&#x000D;&#x000A;Type&#x000D;&#x000A;Required&#x000D;&#x000A;Default&#x000D;&#x000A;Severity&#x000D;&#x000A;TopN</Keywords>
+
+            <!-- ======================================================== -->
+            <!-- DELIMITERS: 界定符配对（每3个一组: 开 转义 关）            -->
+            <!-- 组1(00-02): 反引号 → inline code                          -->
+            <!-- 组3(06-08): 单引号 → YAML单引号字符串                      -->
+            <!-- 组5(12-14): 双引号 → YAML双引号字符串                      -->
+            <!-- ======================================================== -->
+            <Keywords name="Delimiters">00` 01 02` 03 04 05 06' 07 08' 09 10 11 12" 13 14" 15 16 17 18 19 20 21 22 23</Keywords>
+        </KeywordLists>
+        <Styles>
+            <!-- DEFAULT: 默认文本 -->
+            <WordsStyle name="DEFAULT" fgColor="000000" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="0" nesting="0" />
+            <!-- COMMENTS: 块注释（未使用） -->
+            <WordsStyle name="COMMENTS" fgColor="808080" bgColor="FFFFFF" fontName="" fontStyle="2" nesting="0" />
+            <!-- LINE COMMENTS: # 开头的行（YAML注释 / Markdown标题） -->
+            <WordsStyle name="LINE COMMENTS" fgColor="008040" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="2" nesting="0" />
+            <!-- NUMBERS: 数字 -->
+            <WordsStyle name="NUMBERS" fgColor="800000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <!-- KEYWORDS1: 核心字段 — 深蓝加粗 -->
+            <WordsStyle name="KEYWORDS1" fgColor="000080" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="1" nesting="0" />
+            <!-- KEYWORDS2: 控制字段 — 蓝色 -->
+            <WordsStyle name="KEYWORDS2" fgColor="0000FF" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="0" nesting="0" />
+            <!-- KEYWORDS3: 运行时配置 — 青色 -->
+            <WordsStyle name="KEYWORDS3" fgColor="008080" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="0" nesting="0" />
+            <!-- KEYWORDS4: YAML逻辑值 — 红色加粗 -->
+            <WordsStyle name="KEYWORDS4" fgColor="800000" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="1" nesting="0" />
+            <!-- KEYWORDS5: 模型名/可选值 — 紫色 -->
+            <WordsStyle name="KEYWORDS5" fgColor="800080" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="0" nesting="0" />
+            <!-- KEYWORDS6: 正文标记词 — 橙色加粗 -->
+            <WordsStyle name="KEYWORDS6" fgColor="FF8000" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="1" nesting="0" />
+            <!-- KEYWORDS7: REFERENCE.md 章节 — 绿色 -->
+            <WordsStyle name="KEYWORDS7" fgColor="008040" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="0" nesting="0" />
+            <!-- KEYWORDS8: FORMS.md 模板字段 — 暗青 -->
+            <WordsStyle name="KEYWORDS8" fgColor="006060" bgColor="FFFFFF" fontName="Microsoft YaHei" fontStyle="0" nesting="0" />
+            <!-- OPERATORS: 冒号 : -->
+            <WordsStyle name="OPERATORS" fgColor="0080FF" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <!-- FOLDER: 折叠标记（未使用） -->
+            <WordsStyle name="FOLDER IN CODE1" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE2" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN COMMENT" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <!-- DELIMITERS1: 反引号 inline code — 灰底等宽 -->
+            <WordsStyle name="DELIMITERS1" fgColor="808080" bgColor="F0F0F0" fontName="Courier New" fontStyle="0" nesting="0" />
+            <!-- DELIMITERS2: 未使用 -->
+            <WordsStyle name="DELIMITERS2" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <!-- DELIMITERS3: 单引号字符串 — 棕色 -->
+            <WordsStyle name="DELIMITERS3" fgColor="804000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <!-- DELIMITERS4: 未使用 -->
+            <WordsStyle name="DELIMITERS4" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <!-- DELIMITERS5: 双引号字符串 — 棕色 -->
+            <WordsStyle name="DELIMITERS5" fgColor="804000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <!-- DELIMITERS6-8: 未使用 -->
+            <WordsStyle name="DELIMITERS6" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS7" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS8" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
+        </Styles>
+    </UserLang>
+</NotepadPlus>
